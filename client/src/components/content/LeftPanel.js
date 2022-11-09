@@ -4,7 +4,7 @@ import { Link, withRouter, useRouteMatch } from 'react-router-dom'
 import Loading from '../../utils/Loading'
 import Download from '../../utils/dowload'
 import { setSearch, clearSearch, startState, exportExcel } from '../../store/action/dataAction'
-import CustomLink from './customLink'
+import CustomLink from './CustomLink'
 import { getData, getisFetching, getErr, getTotalPage, getisDownload } from '../../store/configureStore/appStore'
 import ErrorNotif from '../content/Error'
 import keyTranslate from '../../utils/translateKey'
@@ -21,6 +21,7 @@ const LeftPanel = (props) => {
 
     const [search, setSearchForm] = useState(props.search)
     const [download, setDownload] = useState(false)
+
     useEffect(() => {
         setSearchForm(props.search)
         props.dispatch(startState(props.filter, props.page, props.search))
@@ -41,7 +42,7 @@ const LeftPanel = (props) => {
                         !props.id ?
                             <form className='form searchForm'>
                                 <div className='searchForm__form-group '>
-                                    <input type='text' className='searchForm__value' value={search} onChange={(e) => {
+                                    <input type='text' maxLength={40} className='searchForm__value' value={search} onChange={(e) => {
                                         setSearchForm(e.target.value)
                                     }} placeholder='Search...' name='search' />{search && <span onClick={() => {
                                         setSearchForm('')
@@ -64,7 +65,7 @@ const LeftPanel = (props) => {
                                 to={props.search ? `${url}/${props.filter}/${props.page}?name=${props.search}`
                                     : `${url}/${props.filter}/${props.page}`} className='btn btn-shuttle--left'>
 
-                                <span>&#8592;</span> Quay Lai
+                                <span>&#8592;</span> Danh sách
 
                             </Link>
 
@@ -77,7 +78,9 @@ const LeftPanel = (props) => {
                             props.dispatch(setSearch(props.filter, ''))
                             setSearchForm('')
                         }}
-                            message={props.error.message === 'NOT FOUND' ? 'Not Found. Try another Search Term.' : props.error.message} to={props.error.message === 'Please Login!' ? '/user/login' : `${url}/${props.filter}`} />
+                            message={props.error.message === 'NOT FOUND' ? 'Not Found. Try another Search Term.' : props.error.message}
+                            to={props.error.message === 'Please Login!' ? '/user/login' : `${url}/${props.filter}`}
+                        />
                         : props.fetching ?
                             <Loading />
 

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useRouteMatch, Prompt, useLocation } from 'react-router-dom'
+import React from 'react'
+import { Link, useRouteMatch } from 'react-router-dom'
 import { deleteData } from '../../store/action/dataAction'
 import { connect } from 'react-redux'
 
@@ -26,9 +26,7 @@ const customLink = ({ id, to, filter, children, url, dispatch }) => {
                             dispatch(deleteData(filter, id))
                         }
                     }}
-                >
-                    Delete
-                    </Link>
+                >Delete</Link>
             }
 
         </div>

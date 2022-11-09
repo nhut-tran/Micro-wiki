@@ -10,7 +10,6 @@ const userReducer = (state = userDefaultState, action = { type: 'default' }) => 
         case 'SIGNUP_SUCCESS':
         case 'UPDATE_PASSWORD_SUCCESS':
             return state
-        //     return {...state, ...action.user}
         case 'LOG_IN_FAIL':
         case 'SIGNUP_FAIL':
         case 'UPDATE_PASSWORD_FAIL':

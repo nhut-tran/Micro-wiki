@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { logout, clearErr } from '../store/action/userAction'
 import { getCurrentPage } from '../store/configureStore/appStore'
 import checkRole from '../utils/checkRole'
+
 const Header = (props) => {
     const [smallNav, setSmallNav] = useState(false)
     const location = useLocation()
@@ -24,26 +25,24 @@ const Header = (props) => {
                     {checkRole(['admin'], props.user.userRole) ? <NavLink className="nav__link" to={`/admin`} activeClassName='method'>
                         Admin page</NavLink> : null
                     }
-
-
                     {(props.user.isLogined) ?
 
                         (
-                            <React.Fragment>
+                            <>
                                 <NavLink className="nav__link--userImg" to='/user/myAccount' >{props.user.userStatus ? <img className='nav__userImg' src={`./img/${props.user.photo}`} onError={(e) => e.target.src = '/img/avatar.jpeg'} /> : 'Account not activated'}</NavLink>
-                                <NavLink id="nav__link-data" className="nav__link" to={`/edit/data/1`}>Data</NavLink>
+                                <NavLink id="nav__link-data" className="nav__link" to={`/edit/data/1`}>Dữ liệu</NavLink>
                                 <NavLink className="nav__link" to='/' onClick={() => { props.dispatch(logout()) }}>Log Out</NavLink>
-                            </React.Fragment>
+                            </>
 
                         )
                         :
                         (
-                            <>
+                            <div className='login-control'>
                                 <NavLink className="nav__link nav__link--login-control" to='/user/login'
                                     onClick={() => { if (props.user.error) props.dispatch(clearErr()) }}
-                                >Dang Nhap</NavLink>
-                                <NavLink className="nav__link" to='/user/newSignup' onClick={() => { if (props.user.error) props.dispatch(clearErr()) }} >Dang Ky</NavLink>
-                            </>
+                                >Đăng nhập</NavLink>
+                                <NavLink className="nav__link nav__link--login-control" to='/user/newSignup' onClick={() => { if (props.user.error) props.dispatch(clearErr()) }} >Đăng ký</NavLink>
+                            </div>
                         )
                     }
                     <div onClick={() => {
@@ -60,7 +59,7 @@ const Header = (props) => {
                             <div className='nav-small__box'>
 
                                 <NavLink onClick={() => setSmallNav((prev) => !prev)}
-                                    className="nav-small__link" to='/' >Trang Chu</NavLink>
+                                    className="nav-small__link" to='/' >Trang Chủ</NavLink>
 
                                 <NavLink onClick={() => setSmallNav((prev) => !prev)}
                                     className="nav-small__link" to={`/lookup/methods/1`} >Phương pháp</NavLink>

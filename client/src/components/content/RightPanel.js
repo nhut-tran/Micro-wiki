@@ -1,19 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, useRouteMatch } from 'react-router-dom'
-import LookupDetail from './lookupDetail'
+import LookupDetail from './LookupDetail'
 import { getDetailData } from '../../store/configureStore/appStore'
 import MethodForm from './MethodForm'
 import MediaForm from './Mediaform'
+
 const RightPanel = ({ data, id, filter, handleSubmit }) => {
     if (id) {
         let component
         if (filter === 'data') {
             component = (
                 <LookupDetail
-                    // data={data}
-                    // id={id}
-                    // filter={filter}
                     priceProp={true}
                 />
             )
@@ -41,16 +39,12 @@ const RightPanel = ({ data, id, filter, handleSubmit }) => {
                 {
 
                     useRouteMatch(`/lookup/:filter/:page?/:id?`) ?
-                        <LookupDetail
-                        // data={data}
-                        // id={id}
-                        // filter={filter}
-                        /> :
-                        component
+                        <LookupDetail /> : component
                 }
             </div>
         )
     } else {
+
         return null
     }
 }

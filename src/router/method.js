@@ -5,7 +5,7 @@ const authController = require('../controller/authController')
 
 router.route('/')
     .post(authController.auth, authController.restrictRole('admin'), methodController.addNewMethod)
-    .get(authController.auth, authController.restrictRole('user', 'admin'), methodController.getAllMethod)
+    .get(methodController.getAllMethod) //authController.auth, authController.restrictRole('user', 'admin')
 router.route('/getStat')
     .get(authController.auth, authController.restrictRole('admin'), methodController.getStat)
 router.route('/exportexcel')
@@ -13,7 +13,7 @@ router.route('/exportexcel')
     .get(authController.auth, authController.restrictRole('user', 'admin'), methodController.sendExcelFile)
 
 router.route('/:id')
-    .get(authController.auth, authController.restrictRole('user', 'admin'), methodController.getOneMethod)
+    .get(methodController.getOneMethod) //authController.auth, authController.restrictRole('user', 'admin'),
     .patch(authController.auth, authController.restrictRole('user', 'admin'), methodController.updateOneMethod)
     .delete(authController.auth, authController.restrictRole('admin'), methodController.deleteOneMethod)
 module.exports = router

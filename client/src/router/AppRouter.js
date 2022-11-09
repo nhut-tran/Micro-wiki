@@ -32,23 +32,23 @@ const AppRouter = (props) => {
         return (<BrowserRouter>
             <>
                 <Header />
+                <main className='main'>
+                    <Switch>
 
-                <Switch>
-
-                    <Route path="/" component={MainContent} exact={true} />
-                    <PrivateRoute path="/admin" role={['admin']} component={Admin} exact={true} />
-                    <Route path='/lookup/:filter/:page?/:id?' component={LookupContent} exact={true} />
-                    <PublicRoute path="/user/login" component={Signup} exact={true} />
-                    <PublicRoute path="/user/newSignup" component={Signup} exact={true} />
-                    <PrivateRoute path="/user/myAccount" role={['admin', 'user']} component={UserAccount} exact={true} />
-                    <PrivateRoute path="/user/changePassword" role={['admin', 'user']} component={Signup} exact={true} />
-                    <Route path="/user/accountactivate/:token" component={SignupConfirm} exact={true} />
-                    <PrivateRoute path='/edit/:filter/:page?/:id?' role={['admin', 'user']} component={Edit} exact={true} />
-                    <PrivateRoute path='/admin/:filter/:page?/:id?' role={['admin']} component={Edit} exact={true} />
-                    <PrivateRoute path="/addnew/:filter" role={['admin']} component={AddNew} />
-                    <Route path='*' component={NotFound} />
-                </Switch>
-
+                        <Route path="/" component={MainContent} exact={true} />
+                        <PrivateRoute path="/admin" role={['admin']} component={Admin} exact={true} />
+                        <Route path='/lookup/:filter/:page?/:id?' component={LookupContent} exact={true} />
+                        <PublicRoute path="/user/login" component={Signup} exact={true} />
+                        <PublicRoute path="/user/newSignup" component={Signup} exact={true} />
+                        <PrivateRoute path="/user/myAccount" role={['admin', 'user']} component={UserAccount} exact={true} />
+                        <PrivateRoute path="/user/changePassword" role={['admin', 'user']} component={Signup} exact={true} />
+                        <Route path="/user/accountactivate/:token" component={SignupConfirm} exact={true} />
+                        <PrivateRoute path='/edit/:filter/:page?/:id?' role={['admin', 'user']} component={Edit} exact={true} />
+                        <PrivateRoute path='/admin/:filter/:page?/:id?' role={['admin']} component={Edit} exact={true} />
+                        <PrivateRoute path="/addnew/:filter" role={['admin']} component={AddNew} />
+                        <Route path='*' component={NotFound} />
+                    </Switch>
+                </main>
                 <Footer />
             </>
 

@@ -81,8 +81,12 @@ $break : 32em;
         justify-content: flex-end;
     }
 
+    & .login-control {
+        margin-left: auto;
+    }
+
     &__link {
-        display: block;
+
         padding: 0.4rem 0.8rem;
         text-decoration: none;
         color: $color_white;
@@ -105,13 +109,16 @@ $break : 32em;
         }
 
         &--login-control {
-            margin-left: auto;
+
+            font-size: 1rem;
 
             @include respondMax($break) {
                 width: 0px;
                 display: none;
             }
         }
+
+
 
         &--userImg {
             margin-left: auto;

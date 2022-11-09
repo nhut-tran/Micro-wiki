@@ -137,9 +137,11 @@
         width: max-content;
         padding: 0.2rem 0.3rem;
         text-align: right;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s;
 
         span {
-
+            opacity: 0;
             transition: all 0.2s;
         }
 
@@ -148,8 +150,7 @@
             color: $color_pink;
 
             span {
-
-                margin-left: 1.5rem;
+                opacity: 1;
             }
         }
     }
@@ -159,10 +160,12 @@
         width: max-content;
         padding: 0.2rem 0.3rem;
         text-align: right;
+        border-bottom: 1px solid transparent;
+        transition: all 0.2s;
 
         span {
             opacity: 0;
-            transition: all 0.4s;
+            transition: all 0.2s;
         }
 
         &:hover {
@@ -171,7 +174,6 @@
 
             span {
                 opacity: 1;
-                margin-left: -1rem;
             }
         }
     }

@@ -157,7 +157,6 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                     !price ? key.map(el => { //if not in set price
 
                         if (filter === 'methods' || filter === 'data') {
-                            console.log(el)
                             return (
 
                                 <div className='rightpanel__item'>
@@ -208,7 +207,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                         : // ==================set price==================================
                         <>
                             {popup ? <div className={popup.class}>{popup.message}</div> : null}
-                            {  filter !== 'data' && <Link className='btn btn-shuttle--left' onClick={() => setPrice((prev) => !prev)}><span>&#8592;</span> Quay lại</Link>}
+                            {filter !== 'data' && <Link className='btn btn-shuttle--left' onClick={() => setPrice((prev) => !prev)}><span>&#8592;</span> Quay lại</Link>}
                             {totalFee && <>
                                 <h3 className='rightpanel__total-fee'>Tổng chi Phí: {totalFee}</h3>
 
@@ -273,7 +272,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                         {state.err.includes(`mediaQuantity-${ind + 1}-${index + 1}`)
                                                                             && <div className='error-notification'>
                                                                                 Số không hợp hệ!
-                                                                     </div>
+                                                                            </div>
                                                                         }
 
                                                                         <input value={state.data[ind].media[index].mediaQuantity} onChange={(e) => runDispatch('mediaQuantity', e.target.value * 1, ind, index)} /></div>
@@ -285,7 +284,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                         {state.err.includes(`price-${ind + 1}-${index + 1}`)
                                                                             && <div className='error-notification'>
                                                                                 Số không hợp hệ!
-                                                                     </div>
+                                                                            </div>
                                                                         }
                                                                         <input value={state.data[ind].media[index].price} onChange={(e) => runDispatch('price', e.target.value * 1, ind, index)} /></div>
                                                                     <div>
@@ -293,7 +292,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                         {state.err.includes(`package-${ind + 1}-${index + 1}`)
                                                                             && <div className='error-notification'>
                                                                                 Số không hợp hệ!
-                                                                     </div>
+                                                                            </div>
                                                                         }
                                                                         <input value={state.data[ind].media[index].package} onChange={(e) => runDispatch('package', e.target.value * 1, ind, index)} />
                                                                     </div>
@@ -302,7 +301,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                         {state.err.includes(`weight-${ind + 1}-${index + 1}`)
                                                                             && <div className='error-notification'>
                                                                                 Số không hợp hệ!
-                                                                        </div>
+                                                                            </div>
                                                                         }
                                                                         <input value={state.data[ind].media[index].weight} onChange={(e) => runDispatch('weight', e.target.value * 1, ind, index)} />
                                                                     </div>
@@ -311,7 +310,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                         {state.err.includes(`unit-${ind + 1}-${index + 1}`)
                                                                             && <div className='error-notification'>
                                                                                 Vui lòng chọn đơn vị phù hợp
-                                                                        </div>
+                                                                            </div>
                                                                         }
                                                                         <select value={state.data[ind].media[index].unit} onChange={(e) => runDispatch('unit', e.target.value, ind, index)}>
                                                                             <option disabled value=''>----</option>
@@ -336,7 +335,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                         }}
                                                                     >-</Link></h3>
                                                                 </li>
-                                                                { media.tool.map((tool, toolIndex) => {
+                                                                {media.tool.map((tool, toolIndex) => {
                                                                     return (
                                                                         <>
 
@@ -346,7 +345,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                                     {state.err.includes(`toolName-${ind + 1}-${index + 1}${toolIndex}`)
                                                                                         && <div className='error-notification'>
                                                                                             Chọn tên vật tư
-                                                                                    </div>
+                                                                                        </div>
                                                                                     }
                                                                                     <select value={tool.toolName} onChange={(e) => runDispatchTool('toolName', e.target.value, ind, index, toolIndex)}>
                                                                                         <option value=''>----</option>
@@ -360,7 +359,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                                     {state.err.includes(`toolQuantity-${ind + 1}-${index + 1}${toolIndex}`)
                                                                                         && <div className='error-notification'>
                                                                                             Số không hợp hệ!
-                                                                                    </div>
+                                                                                        </div>
                                                                                     }
                                                                                     <input value={tool.toolQuantity} onChange={(e) => runDispatchTool('toolQuantity', e.target.value * 1, ind, index, toolIndex)} />
 
@@ -370,7 +369,7 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
                                                                                     {state.err.includes(`toolPrice-${ind + 1}-${index + 1}${toolIndex}`)
                                                                                         && <div className='error-notification'>
                                                                                             Số không hợp hệ!
-                                                                                    </div>
+                                                                                        </div>
                                                                                     }
                                                                                     <input value={tool.toolPrice} onChange={(e) => runDispatchTool('toolPrice', e.target.value * 1, ind, index, toolIndex)} />
                                                                                 </div>
