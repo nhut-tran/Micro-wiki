@@ -1,0 +1,6 @@
+client/node_modules
+node_modules
+*env
+.vscode
+client/src/nhut
+public/*xlsx
