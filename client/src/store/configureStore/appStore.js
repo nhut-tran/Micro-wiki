@@ -63,7 +63,6 @@ export const getDetailData = (state, filter, id) => {
       step.map((el) => {
         media.forEach((e) => {
           if (el.stepName === e.stepName) {
-            console.log(e)
             return el.media.push(
               {
                 action: e.action,

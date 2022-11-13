@@ -2,9 +2,7 @@ const User = require('../db/model/User')
 const jwt = require('jsonwebtoken')
 const catchAsync = require('../utils/catchAsync')
 const appErr = require('../utils/appErr')
-console.log({
-    ['a-b']: 'nhut'
-})
+
 exports.auth = catchAsync(async (req, res, next) => {
 
     // if(!req.headers.authorization || !req.headers.authorization.startsWith('Bearer ')) return next(new appErr(401, 'Please Login'))

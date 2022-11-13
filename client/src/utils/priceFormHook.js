@@ -101,7 +101,7 @@ export const checkFinalData = (state) => {
             media.tool.forEach((tool, toolIndex) => {
 
                 secondLevel = [...secondLevel, ...checkInput([], [], tool, `${ind + 1}-${index + 1}${toolIndex}`)]
-                console.log(tool.toolName.length > 0 && tool.toolName !== ' ')
+
                 if (tool.toolName.length > 0 && tool.toolName !== ' ') {
                     if (tool.toolPrice === 0) {
                         secondLevel = [...secondLevel, `toolPrice-${ind + 1}-${index + 1}${toolIndex}`]
@@ -121,7 +121,7 @@ export const checkFinalData = (state) => {
     })
 
     if (firstLevel.length > 0 || secondLevel.length > 0) {
-        console.log([...firstLevel, ...secondLevel])
+
         return [...firstLevel, ...secondLevel]
 
     } else {

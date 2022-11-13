@@ -39,7 +39,6 @@ export const login = (userInfo, history) => {
 
     return (dispatch) => {
         fetchData('post', '/user/login', userInfo).then((res) => {
-            console.log(res)
             if (res.status === 'success') {
 
                 dispatch({

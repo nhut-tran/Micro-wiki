@@ -73,7 +73,6 @@ export const startState = (filter, page = 1, search = '') => {
 
 
 export const exportExcel = (data) => {
-  console.log(data)
   return (dispatch) => {
     dispatch({
       type: 'POSTING_DATA',
@@ -216,7 +215,6 @@ export const deleteData = (filter, id) => {
         for (const i in localData) {
           if (i.includes(id)) {
             delete localData[i]
-            console.log(i)
             break
           }
         }

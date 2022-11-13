@@ -194,7 +194,7 @@ export const shapData = (state) => {
         secondLevel = [...secondLevel, ...checkInput([], ['stepName'], el, ind + 1)]
         el.media.forEach((mediaInfo, index) => {
             //check err in mediainfo of each step
-            console.log(mediaInfo)
+
             thirdLevel = [...thirdLevel, ...checkInput(['mediaQuantity'], ['mediaName', 'mediaUnit', 'temp', 'tempRange', 'time', 'action'], mediaInfo, index + 1)]
             shapeState.media.push({
                 action: mediaInfo.action,
@@ -210,7 +210,6 @@ export const shapData = (state) => {
         })
     })
     if (firstLevel.length > 0 || secondLevel.length > 0 || thirdLevel.length > 0) {
-        console.log([...firstLevel, ...secondLevel, ...thirdLevel])
         return {
             err: [...firstLevel, ...secondLevel, ...thirdLevel]
 

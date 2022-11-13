@@ -17,10 +17,9 @@ function LookupDetail({ data, filter, id, priceProp, dispatch }) {
     //prepare structure of state
     //if not 'data' delete some prop and set some to undefined
     const setDefState = () => {
-        console.log(data)
+
         const shapeState = data.step.map(step => {
             ({ ...step }.media.forEach(el => {
-                console.log(el)
                 if (filter !== 'methods') {
                     delete el.temp
                     delete el.time

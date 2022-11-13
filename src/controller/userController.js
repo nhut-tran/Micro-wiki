@@ -61,7 +61,6 @@ exports.signupUser = catchAsync(async (req, res, next) => {
     try {
         await newMail.send(wellCome(newUser.name, `${req.protocol}://${req.get('host')}/user/accountactivate/${token}`), 'Wellcome')
     } catch (e) {
-        console.log(e)
         await User.deleteOne({ _id: newUser.id })
         return res.status(400).json({
             status: 'fail',

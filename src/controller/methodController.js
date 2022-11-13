@@ -8,7 +8,6 @@ const xl = require('excel4node')
 const readXlsxFile = require('read-excel-file/node')
 
 exports.addNewMethod = catchAsync(async (req, res, next) => {
-    console.log(req.body)
     const { name, type, media, Longduration, shortDuration, negativeControlStrain, tempRange,
         positiveControlStrain, topReadingInterval = undefined, bottomReadingInterval = undefined } = { ...req.body }
     const newMethod = await Method.create({
@@ -387,92 +386,6 @@ exports.sendExcelFile = catchAsync(async (req, res, next) => {
             console.log('deleted')
         })
     })
-
-})
-
-const a = createCovidFile = catchAsync(async (req, res, next) => {
-    readXlsxFile(path.resolve(__dirname, 'data.xlsx')).then(rows => console.log(rows[8]))
-    var s = {
-        border: { // §18.8.4 border (Border)
-            left: {
-                style: 'thin', //§18.18.3 ST_BorderStyle (Border Line Styles) ['none', 'thin', 'medium', 'dashed', 'dotted', 'thick', 'double', 'hair', 'mediumDashed', 'dashDot', 'mediumDashDot', 'dashDotDot', 'mediumDashDotDot', 'slantDashDot']
-                // color: string // HTML style hex value
-            },
-            right: {
-                style: 'thin',
-                // color: string
-            },
-            top: {
-                style: 'thin',
-                //  color: string
-            },
-            bottom: {
-                style: 'thin',
-                // color: string
-            }
-        }
-    }
-    const wb = new xl.Workbook()
-    const ws = wb.addWorksheet('test')
-    ws.cell(3, 4).string('CÔNG TY TNHH INTERTEK VIỆT NAM-CHI NHÁNH CẦN THƠ').style({
-        font: {
-            size: 10
-        }
-    })
-    ws.addImage({
-        image: fs.readFileSync(path.resolve(__dirname, 'logo.png')),
-        type: 'picture',
-        position: {
-            type: 'twoCellAnchor',
-            from: {
-                col: 1,
-                colOff: 0,
-                row: 3,
-                rowOff: 0,
-            },
-            to: {
-                col: 4,
-                colOff: 0,
-                row: 6,
-                rowOff: 0,
-            },
-        }
-    });
-
-    ws.cell(4, 4).string('Địa chỉ: M10, 11, 12, 13 KĐT Nam Sông Cần Thơ, KV Thạnh Thuận, P. Phú Thứ, Q. Cái Răng, TPCT')
-    ws.cell(7, 4).string('PHIẾU KẾT QUẢ XÉT NGHIỆM').style({ font: { bold: true } })
-    ws.cell(9, 2).string('Họ & Tên:').style({ font: { size: 10 } })
-    ws.cell(10, 2).string('Họ & Tên:').style({ font: { size: 10 } })
-    ws.cell(11, 2).string('Mã số nhân viên:').style({ font: { size: 10 } })
-    ws.cell(12, 2).string('Ngày sinh:').style({ font: { size: 10 } })
-    ws.cell(9, 6).string('Điện thoại:').style({ font: { size: 10 } })
-    ws.cell(12, 6).string('Giới tính:').style({ font: { size: 10 } })
-    ws.cell(13, 2).string('CCCD/CMND:').style({ font: { size: 10 } })
-    ws.cell(14, 2).string('Địa chỉ:').style({ font: { size: 10 } })
-    ws.cell(15, 2).string('Ngày xét nghiệm:').style({ font: { size: 10 } })
-    ws.cell(16, 2).string('Chẩn đoán:').style({ font: { size: 10 } })
-    ws.cell(18, 1).string('STT').style(s)
-    ws.cell(18, 2, 18, 5, true).string('TÊN XÉT NGHIỆM').style(s)
-    ws.cell(18, 6, 18, 9, true).string('KẾT QUẢ').style(s)
-    ws.cell(19, 1, 19, 9, true).string('Test nhanh').style(s)
-    ws.cell(20, 1).string('1').style(s)
-    ws.cell(20, 2, 20, 5, true).string('SGTi - Felx COVID - 19 Ag  (Cat.No.: CAGT900E )').style(s)
-    ws.cell(20, 6, 20, 9, true).string('Âm tính').style(s)
-    ws.cell(25, 2).string('Ngày:').style({ font: { size: 10 } })
-    ws.cell(26, 2).string('Kỹ thuật viên xét nghiệm').style({ font: { size: 10 } })
-    ws.cell(31, 2).string('Nguyễn Chí Tâm').style({ font: { size: 10 } })
-    ws.cell(25, 7).string('Ngày:').style({ font: { size: 10 } })
-    ws.cell(26, 7).string('Quản lý kỹ thuật').style({ font: { size: 10 } })
-    ws.cell(31, 7).string('Cao Viết Thanh').style({ font: { size: 10 } })
-    for (let i = 0; i < 2; i++) {
-        wb.writeToBuffer().then((data) => {
-            fs.writeFile(`./public/test${i + 1}.xlsx`, data, (err) => {
-
-            })
-        })
-    }
-
-
 
 })
 

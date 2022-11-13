@@ -98,12 +98,6 @@ exports.getOneMedia = catchAsync(async (req, res, next) => {
     let media = await Media.findOne({ _id: req.params.id }).populate('useIn').
         populate('media.mediaName', 'name')
 
-    console.log(media.useIn)
-    // media.useIn = media.useIn.map((el) => {
-    //     el.media = undefined
-    //     return el
-    // })
-
     if (!media) return next(new appErr(404, 'Media not found'))
     sendData(media, res)
 })

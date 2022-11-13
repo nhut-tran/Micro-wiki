@@ -12,7 +12,7 @@ function MethodForm({ data, handleSubmit }) {
       dispatch({ type: 'SET_STATE', state: data })
     }
   }, [data])
-  console.log(state)
+
 
   const setSeach = (search, ind, index) => {
     clearTimeout(timer)
@@ -40,7 +40,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('name')
           && <div className='error-notification'>
             name is required
-                    </div>
+          </div>
         }
         <div className='form__form-group'>
           <h3 className='header-tertinary'>Type of method</h3><select name='type'
@@ -53,7 +53,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('type')
           && <div className='error-notification'>
             type is required
-                    </div>
+          </div>
         }
         <div className='form__form-group'>
           <h3 className='header-tertinary'>Long Duration</h3><input value={state.longDuration}
@@ -62,7 +62,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('longDuration')
           && <div className='error-notification'>
             Long Duration is required and must be a number
-                    </div>
+          </div>
         }
         <div className='form__form-group'>
           <h3 className='header-tertinary'>Short duration</h3><input value={state.shortDuration}
@@ -71,7 +71,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('shortDuration')
           && <div className='error-notification'>
             Short Duration is required and must be a number
-              </div>
+          </div>
         }
         <div className='form__form-group'>
           <h3 className='header-tertinary'>Positive Control Strain</h3><input value={state.positiveControlStrain}
@@ -80,7 +80,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('positiveControlStrain')
           && <div className='error-notification'>
             Positive Control Strain is required
-                    </div>
+          </div>
         }
         <div className='form__form-group'>
           <h3 className='header-tertinary'>Negative Control Strain</h3><input value={state.negativeControlStrain}
@@ -89,7 +89,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('negativeControlStrain')
           && <div className='error-notification'>
             Negative Control Strain is required
-                    </div>
+          </div>
         }
         {state.type === 'quantitative' && <div className='form__form-group'>
           <h3 className='header-tertinary'>Top reading Interval</h3><input value={state.topReadingInterval}
@@ -98,7 +98,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('topReadingInterval')
           && <div className='error-notification'>
             Top reading interval is required
-                    </div>
+          </div>
         }
         {state.type === 'quantitative' && <div className='form__form-group'>
           <h3 className='header-tertinary'>Bottom reading Interval</h3><input value={state.bottomReadingInterval}
@@ -107,7 +107,7 @@ function MethodForm({ data, handleSubmit }) {
         {state.err.includes('bottomReadingInterval')
           && <div className='error-notification'>
             Bottom reading Interval is required
-                    </div>
+          </div>
         }
 
         <div className='form__form-group'>
@@ -166,7 +166,7 @@ function MethodForm({ data, handleSubmit }) {
                 {state.err.includes(`stepName-${ind + 1}`)
                   && <div className='error-notification'>
                     Step Name is required and not a number
-                              </div>
+                  </div>
                 }
               </div>
 
@@ -192,7 +192,7 @@ function MethodForm({ data, handleSubmit }) {
                         {state.err.includes(`mediaName-${index + 1}`)
                           && <div className='error-notification'>
                             Media Name is required and not a number
-                                      </div>
+                          </div>
                         }
                         <div>{mediaStep.mediaNameSearchList && mediaStep.mediaNameSearchList.length > 0 &&
                           <select onChange={(e) => {
@@ -233,7 +233,7 @@ function MethodForm({ data, handleSubmit }) {
                         {state.err.includes(`mediaQuantity-${index + 1}`)
                           && <div className='error-notification'>
                             Media Quantity is required and must be a number
-                                      </div>
+                          </div>
                         }
                       </div>
                       <div className='form__step__media--unit'>
@@ -249,7 +249,7 @@ function MethodForm({ data, handleSubmit }) {
                         {state.err.includes(`mediaUnit-${index + 1}`)
                           && <div className='error-notification'>
                             Media Unit is required and must be mL, g, piece
-                                      </div>
+                          </div>
                         }
                       </div>
 
@@ -266,7 +266,7 @@ function MethodForm({ data, handleSubmit }) {
                         {state.err.includes(`time-${index + 1}`)
                           && <div className='error-notification'>
                             Incubate time is required and not a number
-                                      </div>
+                          </div>
                         }
                       </div>
                       <div className='form__step__media--temp'>
@@ -283,7 +283,7 @@ function MethodForm({ data, handleSubmit }) {
                         {state.err.includes(`temp-${index + 1}`)
                           && <div className='error-notification'>
                             Incubate temparature is required must be a number
-                                         </div>
+                          </div>
                         }
                       </div>
                       <div className='form__step__media--tempRange'>
@@ -300,7 +300,7 @@ function MethodForm({ data, handleSubmit }) {
                         {state.err.includes(`tempRange-${index + 1}`)
                           && <div className='error-notification'>
                             Incubate temparature range is required must be a number
-                                         </div>
+                          </div>
                         }
                       </div>
                       <div className='form__step__media--note'>
@@ -327,7 +327,7 @@ function MethodForm({ data, handleSubmit }) {
                         {state.err.includes(`action-${index + 1}`)
                           && <div className='error-notification'>
                             Action is required
-                                      </div>
+                          </div>
                         }
                       </div>
                     </div>

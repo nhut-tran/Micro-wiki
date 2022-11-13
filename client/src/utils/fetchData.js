@@ -7,7 +7,6 @@ const fetchData = (method, url, data) => {
       url,
       data
    }).then(res => {
-      console.log(res)
       return res.data
 
    })
