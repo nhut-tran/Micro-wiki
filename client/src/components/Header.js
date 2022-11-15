@@ -83,7 +83,7 @@ const Header = (props) => {
                                     :
                                     (
                                         <>
-                                            <Link className="nav-small__link nav-small__link--login-control" to='/user/login' onClick={() => { if (props.user.error) { props.dispatch(clearErr()) }; setSmallNav((prev) => !prev) }}>Đăng Nhâp</Link>
+                                            <Link className="nav-small__link nav-small__link--login-control" to='/user/login' onClick={() => { if (props.user.error) { props.dispatch(clearErr()) }; setSmallNav((prev) => !prev) }}>Đăng Nhập</Link>
                                             <Link className="nav-small__link" to='/user/newSignup' onClick={() => { if (props.user.error) { props.dispatch(clearErr()) }; setSmallNav((prev) => !prev) }} >Đăng Ký</Link>
                                         </>
                                     )
