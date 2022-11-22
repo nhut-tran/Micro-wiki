@@ -3,7 +3,7 @@ import listId from '../reducer/createIdList'
 import list from '../reducer/createList'
 import userReducer from '../reducer/userReducer'
 import thunk from 'redux-thunk'
-import logger from 'redux-logger'
+
 
 
 export default () => {
@@ -13,7 +13,7 @@ export default () => {
       listId,
       user: userReducer
     }),
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk)
   );
 
   return store;
